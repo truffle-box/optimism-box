@@ -1,10 +1,10 @@
-const mnemonic = "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
-const optimismMnemonic = 'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about';
-const optimismHardhatMnemonic = 'test test test test test test test test test test test junk'
+// create a file at the root of your project and name it .env -- there you can set process variables
+// like the mnemomic below. Note: .env is ignored by git in this project to keep your private information safe
+require('dotenv').config();
+const mnemonic = process.env["KOVAN_MNEMONIC"];
 
 const { ganache } = require('@eth-optimism/plugins/ganache');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const ethers = require("ethers");
 const Web3 = require("web3");
 
 const GAS_LIMIT = 10000000
@@ -30,8 +30,6 @@ module.exports = {
           mnemonic: mnemonic,
           network_id: 108,
           default_balance_ether: 100,
-          // gasLimit: GAS_LIMIT,
-          // gasPrice: GAS_PRICE,
         })
       },
       gas: GAS_LIMIT,
@@ -55,11 +53,14 @@ module.exports = {
       gasPrice: GAS_PRICE,
       gasLimit: GAS_LIMIT,
     },
-    kovan_l1: {
-
-    },
     kovan_l2: {
-
+      network_id: "*",
+      chain_id: 69,
+      provider: function() {
+        const wallet = new HDWalletProvider(mnemonic, "https://kovan.optimism.io", 0, 1);
+        return wallet;
+      },
+      gasPrice: GAS_PRICE
     }
 
   },
