@@ -3189,7 +3189,6 @@ function isbl(hljs) {
 
   return {
     name: 'ISBL',
-    aliases: ["isbl"],
     case_insensitive: true,
     keywords: KEYWORDS,
     illegal: "\\$|\\?|%|,|;$|~|#|@|</",

@@ -8,7 +8,6 @@ Category: system
 function nim(hljs) {
   return {
     name: 'Nim',
-    aliases: [ 'nim' ],
     keywords: {
       keyword:
         'addr and as asm bind block break case cast const continue converter ' +

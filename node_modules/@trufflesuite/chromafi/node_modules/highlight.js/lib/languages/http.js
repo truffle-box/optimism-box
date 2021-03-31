@@ -34,24 +34,25 @@ Website: https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
 function http(hljs) {
   const VERSION = 'HTTP/(2|1\\.[01])';
   const HEADER_NAME = /[A-Za-z][A-Za-z0-9-]*/;
-  const HEADERS_AND_BODY = [
-    {
-      className: 'attribute',
-      begin: concat('^', HEADER_NAME, '(?=\\:\\s)'),
-      starts: {
-        contains: [
-          {
-            className: "punctuation",
-            begin: /: /,
-            relevance: 0,
-            starts: {
-              end: '$',
-              relevance: 0
-            }
+  const HEADER = {
+    className: 'attribute',
+    begin: concat('^', HEADER_NAME, '(?=\\:\\s)'),
+    starts: {
+      contains: [
+        {
+          className: "punctuation",
+          begin: /: /,
+          relevance: 0,
+          starts: {
+            end: '$',
+            relevance: 0
           }
-        ]
-      }
-    },
+        }
+      ]
+    }
+  };
+  const HEADERS_AND_BODY = [
+    HEADER,
     {
       begin: '\\n\\n',
       starts: { subLanguage: [], endsWithParent: true }
@@ -108,7 +109,11 @@ function http(hljs) {
           illegal: /\S/,
           contains: HEADERS_AND_BODY
         }
-      }
+      },
+      // to allow headers to work even without a preamble
+      hljs.inherit(HEADER, {
+        relevance: 0
+      })
     ]
   };
 }

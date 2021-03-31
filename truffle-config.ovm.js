@@ -22,7 +22,7 @@ module.exports = {
       url: "http://127.0.0.1:7545",
       network_id: "*",
     },
-    test: {
+    ganache: {
       network_id: 108,
       networkCheckTimeout: 100000,
       provider: function() {
@@ -54,10 +54,19 @@ module.exports = {
       gasLimit: GAS_LIMIT,
     },
     kovan_l2: {
-      network_id: "*",
+      network_id: 69,
       chain_id: 69,
       provider: function() {
         const wallet = new HDWalletProvider(mnemonic, "https://kovan.optimism.io", 0, 1);
+        return wallet;
+      },
+      gasPrice: GAS_PRICE
+    },
+    kovan_l1: {
+      network_id: 42,
+      chain_id: 42,
+      provider: function() {
+        const wallet = new HDWalletProvider(mnemonic, "https://kovan.infura.io/v3/a9b1958523114b4f8c9f1bfd412f4607", 0, 1);
         return wallet;
       },
       gasPrice: GAS_PRICE

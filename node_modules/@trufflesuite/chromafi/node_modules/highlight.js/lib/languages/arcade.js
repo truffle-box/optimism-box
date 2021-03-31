@@ -76,7 +76,6 @@ function arcade(hljs) {
 
   return {
     name: 'ArcGIS Arcade',
-    aliases: ['arcade'],
     keywords: KEYWORDS,
     contains: [
       hljs.APOS_STRING_MODE,

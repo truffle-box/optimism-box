@@ -71,7 +71,6 @@ function smali(hljs) {
   ];
   return {
     name: 'Smali',
-    aliases: [ 'smali' ],
     contains: [
       {
         className: 'string',

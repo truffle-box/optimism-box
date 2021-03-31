@@ -265,7 +265,7 @@ function latex(hljs) {
 
   return {
     name: 'LaTeX',
-    aliases: ['TeX'],
+    aliases: ['tex'],
     contains: [
       ...VERBATIM,
       ...EVERYTHING_BUT_VERBATIM

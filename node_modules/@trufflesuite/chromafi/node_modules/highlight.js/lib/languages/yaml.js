@@ -168,7 +168,7 @@ function yaml(hljs) {
   return {
     name: 'YAML',
     case_insensitive: true,
-    aliases: ['yml', 'YAML'],
+    aliases: [ 'yml' ],
     contains: MODES
   };
 }

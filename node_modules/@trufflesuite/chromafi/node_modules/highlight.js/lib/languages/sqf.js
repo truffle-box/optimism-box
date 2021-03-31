@@ -76,7 +76,6 @@ function sqf(hljs) {
 
   return {
     name: 'SQF',
-    aliases: [ 'sqf' ],
     case_insensitive: true,
     keywords: {
       keyword:

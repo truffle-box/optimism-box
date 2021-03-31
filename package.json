@@ -1,0 +1,34 @@
+{
+  "name": "optimism-box",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "startLocalOptimism": "ttab && cd optimism-integration && git submodule init && git submodule update && make up",
+    "compile:evm": "truffle compile",
+    "compile:ovm": "truffle compile --config truffle-config.ovm.js",
+    "migrate:evm": "truffle migrate",
+    "migrate:ovm": "truffle migrate --config truffle-config.ovm.js --network $npm_config_network",
+    "test:evm": "truffle test",
+    "test:ovm": "truffle test --config truffle-config.ovm.js --network $npm_config_network"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/truffle-box/optimisim-box.git"
+  },
+  "keywords": [],
+  "author": "Faina Shalts <faina@trufflesuite.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/truffle-box/optimism-box/issues"
+  },
+  "homepage": "https://github.com/truffle-box/optimism-box#readme",
+  "dependencies": {
+    "@eth-optimism/plugins": "^0.0.20",
+    "@eth-optimism/solc": "^0.7.6-alpha.1",
+    "dotenv": "^8.2.0",
+    "ttab": "^0.7.0"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.2.3"
+  }
+}

@@ -1,3 +1,36 @@
+/**
+ * @param {string} value
+ * @returns {RegExp}
+ * */
+
+/**
+ * @param {RegExp | string } re
+ * @returns {string}
+ */
+function source(re) {
+  if (!re) return null;
+  if (typeof re === "string") return re;
+
+  return re.source;
+}
+
+/**
+ * @param {RegExp | string } re
+ * @returns {string}
+ */
+function optional(re) {
+  return concat('(', re, ')?');
+}
+
+/**
+ * @param {...(RegExp | string) } args
+ * @returns {string}
+ */
+function concat(...args) {
+  const joined = args.map((x) => source(x)).join("");
+  return joined;
+}
+
 /*
 Language: Tcl
 Description: Tcl is a very simple programming language.
@@ -6,6 +39,13 @@ Website: https://www.tcl.tk/about/language.html
 */
 
 function tcl(hljs) {
+  const TCL_IDENT = /[a-zA-Z_][a-zA-Z0-9_]*/;
+
+  const NUMBER = {
+    className: 'number',
+    variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]
+  };
+
   return {
     name: 'Tcl',
     aliases: ['tk'],
@@ -39,15 +79,24 @@ function tcl(hljs) {
         ]
       },
       {
-        excludeEnd: true,
+        className: "variable",
         variants: [
           {
-            begin: '\\$(\\{)?(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*\\(([a-zA-Z0-9_])*\\)',
-            end: '[^a-zA-Z0-9_\\}\\$]'
+            begin: concat(
+              /\$/,
+              optional(/::/),
+              TCL_IDENT,
+              '(::',
+              TCL_IDENT,
+              ')*'
+            )
           },
           {
-            begin: '\\$(\\{)?(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*',
-            end: '(\\))?[^a-zA-Z0-9_\\}\\$]'
+            begin: '\\$\\{(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*',
+            end: '\\}',
+            contains: [
+              NUMBER
+            ]
           }
         ]
       },
@@ -58,10 +107,7 @@ function tcl(hljs) {
           hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
         ]
       },
-      {
-        className: 'number',
-        variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]
-      }
+      NUMBER
     ]
   }
 }

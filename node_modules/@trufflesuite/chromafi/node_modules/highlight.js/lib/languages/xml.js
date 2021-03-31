@@ -275,7 +275,8 @@ function xml(hljs) {
           },
           {
             begin: />/,
-            relevance: 0
+            relevance: 0,
+            endsParent: true
           }
         ]
       }
