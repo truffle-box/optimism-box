@@ -91,7 +91,13 @@ If you would like to recompile previously compiled contracts, you can manually r
 
 ### Migrating
 
-To migrate on an OVM L2, run `npm run migrate:ovm --network=(ganache | ol2 | kl2)` (remember to choose a network from these options!).
+To migrate on an OVM L2, run: 
+
+```
+npm run migrate:ovm --network=(ganache | ol2 | kl2)
+```
+
+(remember to choose a network from these options!).
 
 You have several L2 networks to choose from, prepackaged in this box (note: L1 networks associated with Optimism are included in the config file as well, to aid you with further development. But here we'll just go through the L2 deployment options available):
 
@@ -102,11 +108,15 @@ You have several L2 networks to choose from, prepackaged in this box (note: L1 n
 
 L1 networks are also included in the configuration file, but it is not necessary to deploy your base contracts to L1 right now. Eventually, you will likely have an L2 contract that you want to connect with an L1 contract (they do not have to be identical!). One example is an ERC20 contract that is deployed on L2. At some point the user will wish to withdraw their funds into L1. There will need to be a contract deployed on L1 that can receive the message from L2 to mint the appropriate tokens on L1 for the user. More information on this system can be found [here](http://community.optimism.io/docs/developers/integration.html#bridging-l1-and-l2).
 
-If you would like to migrate previously migrated contracts on the same network, you can run `truffle migrate --config truffle-config.ovm.js --network <L2NetworkOfChoice>` and add the `--reset` flag.
+If you would like to migrate previously migrated contracts on the same network, you can run `truffle migrate --config truffle-config.ovm.js --network=(ganache | ol2 | kl2)` and add the `--reset` flag.
 
 ### Testing
 
-Currently, this box only supports testing via Javascript/TypeScript tests. In order to run the test currently in the boilerplate, use the following command: `npm run test:ovm --network=<L2NetworkOfChoice>` (remember to replace `L2NetworkOfChoice` with a network in the configuration file!). Remember that there are some differences between the EVM and the OVM, and refer to the Optimism documentation if you run into test failures.
+Currently, this box only supports testing via Javascript/TypeScript tests. In order to run the test currently in the boilerplate, use the following command: 
+```
+npm run test:ovm --network=(ganache | ol2 | kl2)
+```
+Remember that there are some differences between the EVM and the OVM, and refer to the Optimism documentation if you run into test failures.
 
 ### New Configuration File
 
