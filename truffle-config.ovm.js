@@ -1,7 +1,8 @@
 // create a file at the root of your project and name it .env -- there you can set process variables
 // like the mnemomic below. Note: .env is ignored by git in this project to keep your private information safe
 require('dotenv').config();
-const mnemonic = process.env["KOVAN_MNEMONIC"];
+const ganacheMnemonic = process.env["GANACHE_MNEMONIC"];
+const kovanMnemonic = process.env["KOVAN_MNEMONIC"];
 
 const { ganache } = require('@eth-optimism/plugins/ganache');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
@@ -27,7 +28,7 @@ module.exports = {
       networkCheckTimeout: 100000,
       provider: function() {
         return ganache.provider({
-          mnemonic: mnemonic,
+          mnemonic: ganacheMnemonic,
           network_id: 108,
           default_balance_ether: 100,
         })
@@ -35,7 +36,7 @@ module.exports = {
       gas: GAS_LIMIT,
       gasPrice: GAS_PRICE,
     },
-    optimism_l2: {
+    ol2: {
       network_id: "*",
       provider: function() {
         const wallet = new Web3.providers.HttpProvider("http://127.0.0.1:8545/");
@@ -44,7 +45,7 @@ module.exports = {
       gasPrice: GAS_PRICE,
       gasLimit: GAS_LIMIT,
     },
-    optimism_l1: {
+    ol1: {
       network_id: "*",
       provider: function() {
         const wallet = new Web3.providers.HttpProvider("http://127.0.0.1:9545/");
@@ -53,7 +54,7 @@ module.exports = {
       gasPrice: GAS_PRICE,
       gasLimit: GAS_LIMIT,
     },
-    kovan_l2: {
+    kl2: {
       network_id: 69,
       chain_id: 69,
       provider: function() {
@@ -62,7 +63,7 @@ module.exports = {
       },
       gasPrice: GAS_PRICE
     },
-    kovan_l1: {
+    kl1: {
       network_id: 42,
       chain_id: 42,
       provider: function() {

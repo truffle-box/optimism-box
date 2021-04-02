@@ -1,8 +1,5 @@
 {
-  "commands": {
-      "Compile Contracts": "truffle compile"
-  },
   "hooks": {
-      "post-unpack": "npm install"
+      "post-unpack": "npm install && touch .env"
   }
 }
