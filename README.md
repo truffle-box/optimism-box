@@ -57,7 +57,7 @@ The code here will allow you to compile, migrate, and test your code against an 
 
  To migrate:
  ```
- npm run compile:migrate --network=(ganache | ol2 | kl2)
+ npm run migrate:ovm --network=(ganache | ol2 | kl2)
  ```
 
  To test:
