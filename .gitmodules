@@ -1,3 +1,6 @@
 [submodule "optimism-integration"]
 	path = optimism-integration
 	url = https://github.com/ethereum-optimism/optimism-integration
+[submodule "optimism"]
+	path = optimism
+	url = git@github.com:ethereum-optimism/optimism.git
