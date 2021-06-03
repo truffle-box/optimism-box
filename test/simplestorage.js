@@ -1,13 +1,16 @@
+let simpleStorageInstance;
+
 const SimpleStorage = artifacts.require("./SimpleStorage.sol");
-
+    const util = require("util");
 contract("SimpleStorage", accounts => {
-  it("...should store the value 89.", async () => {
-    //.deployed() does not work here, likely due to deployer not having access to this testnet
-    // const simpleStorageInstance = await SimpleStorage.deployed();
-    const simpleStorageInstance = await SimpleStorage.new(1000);
 
+  beforeEach(async () => {
+    simpleStorageInstance = await SimpleStorage.new({ gasPrice: 0 });
+  })
+
+  it("...should store the value 89.", async () => {
     // Set value of 89
-    await simpleStorageInstance.set(89, { from: accounts[0] });
+    const tx = await simpleStorageInstance.set(89, { from: accounts[0], gasPrice: 0 });
 
     // Get stored value
     const storedData = await simpleStorageInstance.get.call();
