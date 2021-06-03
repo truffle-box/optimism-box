@@ -91,7 +91,7 @@ If you would like to recompile previously compiled contracts, you can manually r
 
 ### Migrating
 
-To migrate on an OVM L2, run: 
+To migrate on an OVM L2, run:
 
 ```
 npm run migrate:ovm --network=(ganache | ol2 | kl2)
@@ -101,8 +101,8 @@ npm run migrate:ovm --network=(ganache | ol2 | kl2)
 
 You have several L2 networks to choose from, prepackaged in this box (note: L1 networks associated with Optimism are included in the config file as well, to aid you with further development. But here we'll just go through the L2 deployment options available):
 
-- `ol2`: This network is the default L1/L2 integration provided by Optimism for testing your OVM code. Documentation about this setup can be found [here](https://github.com/ethereum-optimism/optimism-integration).
-  * If you wish to use this network, be sure to run `npm run startLocalOptimism` beforehand so that the optimism-integration docker image can be served. For our purposes, you should be able to compile, migrate, and test against this network once the docker image is fully running.
+- `ol2`: This network is the default L1/L2 integration provided by Optimism for testing your OVM code. Documentation about this setup can be found [here](https://github.com/ethereum-optimism/optimism).
+  * If you wish to use this network, be sure to run `npm run startLocalOptimism` beforehand so that the optimism test ecosystem docker image can be served. For our purposes, you should be able to compile, migrate, and test against this network once the docker image is fully running. See [documentation and updates](https://github.com/ethereum-optimism/optimism/tree/develop/ops) about this docker container for additional information.
 - `ganache`: This network uses an optimistic ganache instance for migrations. The usage is essentially identical to use of regular ganache.
 - `kl2`: Optimism has deployed a testnet to the Kovan network. The RPC endpoint is https://kovan.optimism.io. In order to access this node for testing, you will need to connect a wallet (we suggest [MetaMask](https://metamask.io/)). Save your seed phrase in a `.env` file as `KOVAN_MNEMONIC`. Using an `.env` file for the mnemonic is safer practice because it is listed in `.gitignore` and thus will not be committed.
 
@@ -112,7 +112,7 @@ If you would like to migrate previously migrated contracts on the same network, 
 
 ### Testing
 
-Currently, this box only supports testing via Javascript/TypeScript tests. In order to run the test currently in the boilerplate, use the following command: 
+Currently, this box only supports testing via Javascript/TypeScript tests. In order to run the test currently in the boilerplate, use the following command:
 ```
 npm run test:ovm --network=(ganache | ol2 | kl2)
 ```

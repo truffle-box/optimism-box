@@ -3,10 +3,14 @@
 require('dotenv').config();
 const ganacheMnemonic = process.env["GANACHE_MNEMONIC"];
 const kovanMnemonic = process.env["KOVAN_MNEMONIC"];
+const mnemonic = process.env["MNEMONIC"];
+const infuraKey = process.env["INFURA_KEY"];
+
+//uncomment to use mainnetMnemonic, set in .env file
+//const mainnetMnemonic = process.env["MAINNET_MNEMONIC"]
 
 const { ganache } = require('@eth-optimism/plugins/ganache');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const Web3 = require("web3");
 
 const GAS_LIMIT = 10000000
 const GAS_PRICE = 0
@@ -32,45 +36,35 @@ module.exports = {
           network_id: 108,
           default_balance_ether: 100,
         })
-      },
-      gas: GAS_LIMIT,
-      gasPrice: GAS_PRICE,
+      }
     },
     ol2: {
-      network_id: "*",
+      network_id: 420,
+      chain_id: 420,
       provider: function() {
-        const wallet = new Web3.providers.HttpProvider("http://127.0.0.1:8545/");
-        return wallet;
-      },
-      gasPrice: GAS_PRICE,
-      gasLimit: GAS_LIMIT,
-    },
-    ol1: {
-      network_id: "*",
-      provider: function() {
-        const wallet = new Web3.providers.HttpProvider("http://127.0.0.1:9545/");
-        return wallet;
-      },
-      gasPrice: GAS_PRICE,
-      gasLimit: GAS_LIMIT,
+        return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545/", 0, 1);
+      }
     },
     kl2: {
       network_id: 69,
       chain_id: 69,
       provider: function() {
-        const wallet = new HDWalletProvider(mnemonic, "https://kovan.optimism.io", 0, 1);
-        return wallet;
-      },
-      gasPrice: GAS_PRICE
+        return new HDWalletProvider(kovanMnemonic, "https://optimism-kovan.infura.io/v3/" + infuraKey, 0, 1);
+      }
     },
     kl1: {
       network_id: 42,
       chain_id: 42,
       provider: function() {
-        const wallet = new HDWalletProvider(mnemonic, "https://kovan.infura.io/v3/a9b1958523114b4f8c9f1bfd412f4607", 0, 1);
-        return wallet;
-      },
-      gasPrice: GAS_PRICE
+        return new HDWalletProvider(kovanMnemonic, "https://kovan.infura.io/v3/"+ infuraKey, 0, 1);
+      }
+    },
+    optimismMainnet: {
+      network_id: 10,
+      chain_id: 10,
+      provider: function() {
+        return new HDWalletProvider(mainnetMnemonic, "https://optimism-mainnet.infura.io/v3/" + infuraKey, 0, 1);
+      }
     }
 
   },
@@ -81,7 +75,7 @@ module.exports = {
 
   compilers: {
     solc: {
-      version: "./node_modules/@eth-optimism/solc",
+      version: "node_modules/@eth-optimism/solc",
       settings:  {
         optimizer: {
           enabled: true,
