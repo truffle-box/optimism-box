@@ -18,15 +18,23 @@
  *
  */
 
-const mnemonic = process.env["MNEMONIC"];
+// create a file at the root of your project and name it .env -- there you can set process variables
+// like the mnemomic below. Note: .env is ignored by git in this project to keep your private information safe
+require('dotenv').config();
+const kovanMnemonic = process.env["KOVAN_MNEMONIC"];
+
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const Web3 = require("web3");
 
 module.exports = {
   /**
   * contracts_build_directory tells Truffle where to store compiled contracts
   */
-  contracts_build_directory: './build/evm-contracts',
+  contracts_build_directory: './build/ethereum-contracts',
+
+  /**
+  * contracts_directory tells Truffle where to find your contracts
+  */
+  contracts_directory: './contracts/ethereum',
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -49,12 +57,19 @@ module.exports = {
       port: 7545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
     },
-    ol1: {
+    local_ethereum: {
       network_id: 31337,
       host: '127.0.0.1',
       port: 9545,
       gasPrice: 0
     },
+    kovan: {
+      network_id: 42,
+      chain_id: 42,
+      provider: function() {
+        return new HDWalletProvider(kovanMnemonic, "https://kovan.infura.io/v3/"+ infuraKey, 0, 1);
+      }
+    }
   },
 
   // Set default mocha options here, use special reporters etc.

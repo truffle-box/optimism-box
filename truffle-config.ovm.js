@@ -20,7 +20,12 @@ module.exports = {
   /**
   * contracts_build_directory tells Truffle where to store compiled contracts
   */
-  contracts_build_directory: './build/ovm-contracts',
+  contracts_build_directory: './build/optimism-contracts',
+
+  /**
+  *  contracts_directory tells Truffle where to find your contracts
+  */
+  contracts_directory: './contracts/optimism',
 
   networks: {
     development: {
@@ -38,28 +43,38 @@ module.exports = {
         })
       }
     },
-    ol2: {
+    //for use with local environment -- use `npm runLocalOptimism` to start
+    optimistic_ethereum: {
       network_id: 420,
-      chain_id: 420,
       provider: function() {
-        return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545/", 0, 1);
+        return new HDWalletProvider({
+          mnemonic: {
+            phrase: mnemonic
+          },
+          providerOrUrl: "http://127.0.0.1:8545/",
+          addressIndex: 0,
+          numberOfAddresses: 1,
+          chainId: 420
+        })
       }
     },
-    kl2: {
+    optimistic_kovan: {
       network_id: 69,
-      chain_id: 69,
       provider: function() {
-        return new HDWalletProvider(kovanMnemonic, "https://optimism-kovan.infura.io/v3/" + infuraKey, 0, 1);
+        return new HDWalletProvider({
+          mnemonic: {
+            phrase: kovanMnemonic
+          },
+          providerOrUrl: "https://optimism-kovan.infura.io/v3/" + infuraKey,
+          addressIndex: 0,
+          numberOfAddresses: 1,
+          chainId: 69
+        })
       }
     },
-    kl1: {
-      network_id: 42,
-      chain_id: 42,
-      provider: function() {
-        return new HDWalletProvider(kovanMnemonic, "https://kovan.infura.io/v3/"+ infuraKey, 0, 1);
-      }
-    },
-    optimismMainnet: {
+    // requires a mainnet mnemonic; you can save this in .env or in whatever secure location
+    // you wish to use
+    optimistic_mainnet: {
       network_id: 10,
       chain_id: 10,
       provider: function() {
@@ -72,7 +87,6 @@ module.exports = {
   mocha: {
     timeout: 100000
   },
-
   compilers: {
     solc: {
       version: "node_modules/@eth-optimism/solc",
