@@ -6,14 +6,11 @@ const kovanMnemonic = process.env["KOVAN_MNEMONIC"];
 const mnemonic = process.env["MNEMONIC"];
 const infuraKey = process.env["INFURA_KEY"];
 
-//uncomment to use mainnetMnemonic, set in .env file
+//uncomment to use mainnetMnemonic, be sure to set it in the .env file
 //const mainnetMnemonic = process.env["MAINNET_MNEMONIC"]
 
 const { ganache } = require('@eth-optimism/plugins/ganache');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-
-const GAS_LIMIT = 10000000
-const GAS_PRICE = 0
 
 module.exports = {
 

@@ -17,7 +17,7 @@
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
-This Truffle Optimism Box provides you with the boilerplate structure necessary to start coding for Optimism's Ethereum Layer 2 solution. For detailed information on how Optimism works, please see their documentation [here](http://community.optimism.io/docs/developers/integration.html#).
+This Truffle Optimism Box provides you with the boilerplate structure necessary to start coding for Optimism's Ethereum Layer 2 solution. For detailed information on how Optimism works, please see the documentation [here](http://community.optimism.io/docs/developers/integration.html#).
 
 As a starting point, this box contains only the SimpleStorage Solidity contract. Including minimal code was a conscious decision as this box is meant to provide the initial building blocks needed to get to work on Optimism without pushing developers to write any particular sort of application. With this box, you will be able to compile, migrate, and test Optimistic Solidity code against a variety of Optimism test networks.
 
@@ -116,9 +116,9 @@ npm run migrate:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan)
 
 (remember to choose a network from these options!).
 
-You have several L2 networks to choose from, prepackaged in this box (note: L1 networks associated with Optimism are included in the regular `truffle-config.js` file, to aid you with further development. But here we'll just go through the Layer 2 deployment options available):
+You have several Layer 2 networks to choose from, prepackaged in this box (note: Layer 1 networks associated with Optimism are included in the regular `truffle-config.js` file, to aid you with further development. But here we'll just go through the Layer 2 deployment options available):
 
-- `optimistic_ethereum`: This network is the default Layer 1/Layer 2 integration provided by Optimism for testing your OVM code. Documentation about this setup can be found [here](https://github.com/ethereum-optimism/optimism).
+- `optimistic_ethereum`: This network is the default Layer 1/Layer 2 integration provided by Optimism for testing your Optimistic Ethereum code. Documentation about this setup can be found [here](https://github.com/ethereum-optimism/optimism).
   * If you wish to use this network, be sure to run `npm run startLocalOptimism` beforehand so that the optimism test ecosystem docker image can be served. For our purposes, you should be able to compile, migrate, and test against this network once the docker image is fully running. See [documentation and updates](https://github.com/ethereum-optimism/optimism/tree/develop/ops) about this docker container for additional information.
 - `ganache`: This network uses an optimistic ganache instance for migrations. The usage is essentially identical to use of regular ganache.
 - `optimistic_kovan`: Optimism has deployed a testnet to the Kovan network. The RPC endpoint is https://optimism-kovan.infura.io/v3/. In order to access this node for testing, you will need to connect a wallet (we suggest [MetaMask](https://metamask.io/)). Save your seed phrase in a `.env` file as `KOVAN_MNEMONIC`. Using an `.env` file for the mnemonic is safer practice because it is listed in `.gitignore` and thus will not be committed.
