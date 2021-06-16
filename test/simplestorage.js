@@ -1,7 +1,9 @@
 let simpleStorageInstance;
 
-const SimpleStorage = artifacts.require("./SimpleStorage.sol");
-    const util = require("util");
+const SimpleStorage = artifacts.require("SimpleStorage");
+
+const util = require("util");
+
 contract("SimpleStorage", accounts => {
 
   beforeEach(async () => {
