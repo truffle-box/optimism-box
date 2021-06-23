@@ -25,7 +25,7 @@ Optimism's Layer 2 solution is almost fully compatible with the EVM, though it u
 
 ## Requirements
 
-The Optimism box has the following requirements:
+The Optimism Box has the following requirements:
 
 - [Node.js](https://nodejs.org/) 10.x or later
 - [NPM](https://docs.npmjs.com/cli/) version 5.2 or later
@@ -85,7 +85,6 @@ When you compile or migrate, the resulting `json` files will be at `build/optimi
 
 ## Optimistic Ethereum
 
-
 ### Compiling
 
 To compile your project using the Optimistic `solc` compiler, run the following in your terminal:
@@ -116,7 +115,7 @@ npm run migrate:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan)
 
 (remember to choose a network from these options!).
 
-You have several Layer 2 networks to choose from, prepackaged in this box (note: Layer 1 networks associated with Optimism are included in the regular `truffle-config.js` file, to aid you with further development. But here we'll just go through the Layer 2 deployment options available):
+You have several Optimistic Layer 2 networks to choose from, prepackaged in this box (note: Layer 1 networks associated with Optimism are included in the regular `truffle-config.js` file, to aid you with further development. But here we'll just go through the Layer 2 deployment options available):
 
 - `optimistic_ethereum`: This network is the default Layer 1/Layer 2 integration provided by Optimism for testing your Optimistic Ethereum code. Documentation about this setup can be found [here](https://github.com/ethereum-optimism/optimism).
   * If you wish to use this network, be sure to run `npm run startLocalOptimism` beforehand so that the optimism test ecosystem docker image can be served. For our purposes, you should be able to compile, migrate, and test against this network once the docker image is fully running. See [documentation and updates](https://github.com/ethereum-optimism/optimism/tree/develop/ops) about this docker container for additional information.
@@ -148,7 +147,7 @@ The code here will allow you to compile, migrate, and test your code against an 
 
 ### Testing
 
-Currently, this box only supports testing via Javascript/TypeScript tests. In order to run the test currently in the boilerplate, use the following command:
+Currently, this box supports testing via Javascript/TypeScript tests. In order to run the test currently in the boilerplate, use the following command:
 
 ```
 npm run test:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan)
