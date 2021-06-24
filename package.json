@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "startLocalOptimism": "cd optimism && git submodule update && yarn install && yarn build && cd ops && docker-compose build && docker-compose up",
+    "startLocalOptimism": "cd optimism && git submodule update --init --recursive && yarn install && yarn build && cd ops && export COMPOSE_DOCKER_CLI_BUILD=1 && export DOCKER_BUILDKIT=1 && docker-compose build && docker-compose up",
     "stopLocalOptimism": "cd optimism/ops && docker-compose down -v",
     "compile:evm": "truffle compile",
     "compile:ovm": "truffle compile --config truffle-config.ovm.js",
