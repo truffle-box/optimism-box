@@ -8,7 +8,7 @@
     "compile:evm": "truffle compile",
     "compile:ovm": "truffle compile --config truffle-config.ovm.js",
     "migrate:evm": "truffle migrate",
-    "migrate:ovm": "truffle migrate --config truffle-config.ovm.js --network $npm_config_network",
+    "migrate:ovm": "truffle migrate --skip-dry-run --config truffle-config.ovm.js --network $npm_config_network",
     "test:evm": "truffle test",
     "test:ovm": "truffle test --config truffle-config.ovm.js --network $npm_config_network"
   },
@@ -23,12 +23,11 @@
     "url": "https://github.com/truffle-box/optimism-box/issues"
   },
   "homepage": "https://github.com/truffle-box/optimism-box#readme",
-  "dependencies": {
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.4.1",
     "@eth-optimism/core-utils": "^0.4.4",
     "@eth-optimism/plugins": "^0.0.20",
     "@eth-optimism/solc": "0.7.6-alpha.1",
-    "@truffle/hdwallet-provider": "^1.4.0",
     "dotenv": "^8.2.0"
-  },
-  "devDependencies": {}
+  }
 }

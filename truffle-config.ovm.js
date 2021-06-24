@@ -43,6 +43,7 @@ module.exports = {
     //for use with local environment -- use `npm runLocalOptimism` to start
     optimistic_ethereum: {
       network_id: 420,
+      gas: '0',
       provider: function() {
         return new HDWalletProvider({
           mnemonic: {
@@ -57,16 +58,11 @@ module.exports = {
     },
     optimistic_kovan: {
       network_id: 69,
+      chain_id: 69,
+      gas:  15000000,
+      gasPrice: 0,
       provider: function() {
-        return new HDWalletProvider({
-          mnemonic: {
-            phrase: kovanMnemonic
-          },
-          providerOrUrl: "https://optimism-kovan.infura.io/v3/" + infuraKey,
-          addressIndex: 0,
-          numberOfAddresses: 1,
-          chainId: 69
-        })
+        return new HDWalletProvider(kovanMnemonic, "https://optimism-kovan.infura.io/v3/"+ infuraKey, 0, 1);
       }
     },
     // requires a mainnet mnemonic; you can save this in .env or in whatever secure location
