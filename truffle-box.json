@@ -1,5 +1,5 @@
 {
   "hooks": {
-      "post-unpack": "npm install && touch .env"
+      "post-unpack": "npm install --loglevel=error && touch .env"
   }
 }
