@@ -43,6 +43,7 @@ module.exports = {
     //for use with local environment -- use `npm runLocalOptimism` to start
     optimistic_ethereum: {
       network_id: 420,
+      gas:  15000000,
       provider: function() {
         return new HDWalletProvider({
           mnemonic: {
