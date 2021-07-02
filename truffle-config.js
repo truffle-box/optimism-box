@@ -92,8 +92,8 @@ module.exports = {
       //  evmVersion: "byzantium"
       // }
     }
-  } /*,
+  },
   db: {
-    enabled: true
-  } */
+    enabled: false
+  }
 };
