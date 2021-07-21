@@ -64,7 +64,7 @@ If you are unfamiliar with using `.env` for managing your mnemonics and other ke
 
 ```
 MNEMONIC="candy maple cake sugar pudding cream honey rich smooth crumble sweet treat"
-INFURA_PROJECT_ID="<Your Infura Project ID>"
+INFURA_KEY="<Your Infura Project ID>"
 GANACHE_MNEMONIC="<Your Ganache Mnemonic>"
 KOVAN_MNEMONIC="<Your Kovan Mnemonic>"
 ```
