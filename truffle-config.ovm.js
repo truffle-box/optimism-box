@@ -41,7 +41,8 @@ module.exports = {
         })
       }
     },
-    //for use with local environment -- use `npm runLocalOptimism` to start
+    // for use with local environment -- see README and list of available
+    // scripts in package.json for steps to get this running on your local machine
     optimistic_ethereum: {
       network_id: 420,
       gas:  15000000,
