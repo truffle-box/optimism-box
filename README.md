@@ -131,7 +131,7 @@ You have several Optimistic Layer 2 networks to choose from, prepackaged in this
     3) Visit [this website](https://gateway.optimism.io/) to bridge your Kovan ETH to Optimistic Kovan ETH
     4) Ensure that your `optimistic_kovan` network in `truffle-config.ovm.js` is connected to your Optimistic Kovan wallet.
 
-  _Note: You may get an error about your fee being too low when attempting to deploy to Optimistic Kovan. To bypass this error, you may need to increase the `gas` value in the `optimistic_kovan` network configuration in `truffle-config.ovm.js` to the value the error indicates. Gas price should be set at the transaction level, like so: `{ gasPrice: 15000000 }`._
+  _Note: You may get an error about the block limit being exceeded. The Truffle team is working on this issue, but in the meantime you can add this line before the deployment in your `migrations/1_deploy_contracts.js` file: `SimpleStorage.gasMultiplier = 0.9;`_
 
 Layer 1 networks are included in the `truffle-config.js` file, but it is not necessary to deploy your base contracts to Layer 1 right now. Eventually, you will likely have a Layer 2 contract that you want to connect with a Layer 1 contract (they do not have to be identical!). One example is an ERC20 contract that is deployed on an Optimistic Ethereum network. At some point the user will wish to withdraw their funds into Ethereum. There will need to be a contract deployed on Layer 1 that can receive the message from Layer 2 to mint the appropriate tokens on Layer 1 for the user. More information on this system can be found [here](http://community.optimism.io/docs/developers/integration.html#bridging-l1-and-l2).
 
