@@ -45,7 +45,6 @@ module.exports = {
     // scripts in package.json for steps to get this running on your local machine
     optimistic_ethereum: {
       network_id: 420,
-      gas:  15000000,
       provider: function() {
         return new HDWalletProvider({
           mnemonic: {
@@ -61,7 +60,6 @@ module.exports = {
     optimistic_kovan: {
       network_id: 69,
       chain_id: 69,
-      gas: 32970000,
       provider: function() {
         return new HDWalletProvider(kovanMnemonic, "https://optimism-kovan.infura.io/v3/"+ infuraKey, 0, 1);
       }
