@@ -98,8 +98,8 @@ This script lets Truffle know to use the `truffle-config.ovm.js` configuration f
 Please note: the optimistic `solc` compiler we have included relies on the latest version of the package, and currently uses *version 0.7.6*. If you would like to use a different version of `solc`, see the available optimistic versions [here](https://www.npmjs.com/package/@eth-optimism/solc), and run:
 
 ```
- npm install @eth-optimism/solc@<YourVersion>
- ```
+npm install @eth-optimism/solc@<YourVersion>
+```
 
 You can double check that you have the version you want by looking at the `package.json` dependencies in this project.
 
