@@ -87,21 +87,13 @@ When you compile or migrate, the resulting `json` files will be at `build/optimi
 
 ### Compiling
 
-To compile your project using the Optimistic `solc` compiler, run the following in your terminal:
+To compile your code for Optimistic Ethereum, run the following in your terminal:
 
 ```
 npm run compile:ovm
 ```
 
-This script lets Truffle know to use the `truffle-config.ovm.js` configuration file, which references the Optimistic `solc` compiler. When adding new contracts to compile, you may find some discrepancies and errors, so please remember to keep an eye on [differences between solc and optimistic solc](https://github.com/ethereum-optimism/solidity/compare/27d51765c0623c9f6aef7c00214e9fe705c331b1...develop-0.6)!
-
-Please note: the optimistic `solc` compiler we have included relies on the latest version of the package, and currently uses *version 0.7.6*. If you would like to use a different version of `solc`, see the available optimistic versions [here](https://www.npmjs.com/package/@eth-optimism/solc), and run:
-
-```
-npm install @eth-optimism/solc@<YourVersion>
-```
-
-You can double check that you have the version you want by looking at the `package.json` dependencies in this project.
+This script lets Truffle know to use the `truffle-config.ovm.js` configuration file, which references the directory in which we'll save your compiled contracts. When adding new contracts to compile, you may find some discrepancies and errors, so please remember to keep an eye on [differences between solc and optimistic solc](https://github.com/ethereum-optimism/solidity/compare/27d51765c0623c9f6aef7c00214e9fe705c331b1...develop-0.6)!
 
 If you would like to recompile previously compiled contracts, you can manually run this command with `truffle compile --config truffle-config.ovm.js` and add the `--all` flag.
 
@@ -122,7 +114,7 @@ You have several Optimistic Layer 2 networks to choose from, prepackaged in this
   * If you wish to use this network, be sure to run `npm run startLocalOptimism` so that the optimism test ecosystem docker image can be served. For our purposes, you should be able to compile, migrate, and test against this network once the docker image is fully running. See [documentation and updates](https://github.com/ethereum-optimism/optimism/tree/develop/ops) about this docker container for additional information.
   * Please note, after running `npm run startLocalOptimism` it can take several minutes for the test ecosystem to be up and running on your local machine. The first time you run this command, it will take a bit longer for everything to be set up. Future runs will be quicker!
   * To stop the local docker container, use `npm run stopLocalOptimism` in a new terminal tab to ensure graceful shutdown.
-- `ganache`: This network uses an optimistic ganache instance for migrations. The usage is essentially identical to use of regular ganache.
+- `ganache`: This network uses an optimistic ganache instance for migrations. The usage is essentially identical to use of regular ganache. *Note:* This optimistic ganache instance is no longer actively maintained. We recommend using `optimistic_ethereum` for local testing. Stay tuned for additional ganache resources in the future!
 - `optimistic_kovan`: Optimism has deployed a testnet to the Kovan network. The RPC endpoint is https://optimism-kovan.infura.io/v3/. In order to access this node for testing, you will need to connect a wallet (we suggest [MetaMask](https://metamask.io/)). Save your seed phrase in a `.env` file as `KOVAN_MNEMONIC`. Using an `.env` file for the mnemonic is safer practice because it is listed in `.gitignore` and thus will not be committed.
   * Currently, we have the gasPrice for transactions on Optimistic Kovan set to zero. You should be able to use this network as configured at this time.
   * You will need Kovan ETH in an Optimistic Kovan wallet to deploy contracts using this network. In order to deploy to Optimistic Kovan, you will need to acquire Optimistic Kovan ETH. As of this writing, there is not an Optimistic Kovan ETH faucet. In order to get Optimistic Kovan ETH, follow these steps:
