@@ -33,7 +33,7 @@ module.exports = {
     ganache: {
       network_id: 108,
       networkCheckTimeout: 100000,
-      provider: function() {
+      provider: function () {
         return ganache.provider({
           mnemonic: ganacheMnemonic,
           network_id: 108,
@@ -44,8 +44,8 @@ module.exports = {
     // for use with local environment -- see README and list of available
     // scripts in package.json for steps to get this running on your local machine
     optimistic_ethereum: {
-      network_id: 420,
-      provider: function() {
+      network_id: 17,
+      provider: function () {
         return new HDWalletProvider({
           mnemonic: {
             phrase: mnemonic
@@ -53,15 +53,15 @@ module.exports = {
           providerOrUrl: "http://127.0.0.1:8545/",
           addressIndex: 0,
           numberOfAddresses: 1,
-          chainId: 420
+          chainId: 17
         })
       }
     },
     optimistic_kovan: {
       network_id: 69,
       chain_id: 69,
-      provider: function() {
-        return new HDWalletProvider(kovanMnemonic, "https://optimism-kovan.infura.io/v3/"+ infuraKey, 0, 1);
+      provider: function () {
+        return new HDWalletProvider(kovanMnemonic, "https://optimism-kovan.infura.io/v3/" + infuraKey, 0, 1);
       }
     },
     // requires a mainnet mnemonic; you can save this in .env or in whatever secure location
@@ -69,7 +69,7 @@ module.exports = {
     optimistic_mainnet: {
       network_id: 10,
       chain_id: 10,
-      provider: function() {
+      provider: function () {
         return new HDWalletProvider(mainnetMnemonic, "https://optimism-mainnet.infura.io/v3/" + infuraKey, 0, 1);
       }
     }
@@ -81,8 +81,8 @@ module.exports = {
   },
   compilers: {
     solc: {
-      version: "node_modules/@eth-optimism/solc",
-      settings:  {
+      version: "0.7.6",
+      settings: {
         optimizer: {
           enabled: true,
           runs: 800
