@@ -12,14 +12,16 @@
     "migrate:evm": "truffle migrate",
     "migrate:ovm": "truffle migrate --skip-dry-run --config truffle-config.ovm.js --network $npm_config_network",
     "test:evm": "truffle test",
-    "test:ovm": "truffle test --config truffle-config.ovm.js --network $npm_config_network"
+    "test:ovm": "truffle test --config truffle-config.ovm.js --network $npm_config_network",
+    "exec:evm": "truffle exec",
+    "exec:ovm": "truffle exec $script --config truffle-config.ovm.js --network $npm_config_network"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/truffle-box/optimisim-box.git"
   },
   "keywords": [],
-  "author": "Faina Shalts <faina@trufflesuite.com",
+  "author": "Faina Shalts <faina@trufflesuite.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/truffle-box/optimism-box/issues"

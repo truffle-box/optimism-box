@@ -65,12 +65,20 @@ module.exports = {
       port: 9545,
       gasPrice: 0
     },
-    kovan: {
-      network_id: 42,
-      chain_id: 42,
-      provider: function() {
-        return new HDWalletProvider(kovanMnemonic, "https://kovan.infura.io/v3/"+ infuraKey, 0, 1);
-      }
+    // UNCOMMENT TO USE KOVAN NETWORK
+    // Currently, VSCode Extension debugger fails with "truffle-config.js" has incorrect format
+    // due to the usage of HDWalletProvider
+    // kovan: {
+    //   network_id: 42,
+    //   chain_id: 42,
+    //   provider: function() {
+    //     return new HDWalletProvider(kovanMnemonic, "https://kovan.infura.io/v3/"+ infuraKey, 0, 1);
+    //   }
+    // },
+    dashboard: {
+      host: "127.0.0.1",
+      port: 24012,
+      network_id: "*"
     }
   },
 
@@ -82,7 +90,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.7.6",    // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.13",    // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
