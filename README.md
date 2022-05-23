@@ -151,6 +151,7 @@ The code here will allow you to compile, migrate, and test your code against an 
  ```
  npm run exec:ovm script --network=(ganache | optimistic_ethereum | optimistic_kovan | dashboard)
  ```
+Using `truffle exec` gives your script access to the instance of web3 you have running, via `web3`, and also includes your contracts as global objects when executing the script. For more information on this command, see [here](https://trufflesuite.com/docs/truffle/reference/truffle-commands/#exec).  
 
 ### Testing
 
