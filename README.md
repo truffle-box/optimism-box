@@ -16,10 +16,9 @@
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
 This Truffle Optimism Box provides you with the boilerplate structure necessary to start coding for Optimism's Ethereum Layer 2 solution. For detailed information on how Optimism works, please see the documentation [here](http://community.optimism.io/docs/developers/integration.html#).
 
-As a starting point, this box contains only the SimpleStorage Solidity contract. Including minimal code was a conscious decision as this box is meant to provide the initial building blocks needed to get to work on Optimism without pushing developers to write any particular sort of application. With this box, you will be able to compile, migrate, and test Optimistic Solidity code against a variety of Optimism test networks.
+As a starting point, this box contains only the SimpleStorage Solidity contract. Including minimal code was a conscious decision as this box is meant to provide the initial building blocks needed to get to work on Optimism without pushing developers to write any particular sort of application. With this box, you will be able to compile, migrate, and test Optimistic Solidity code against a variety of Optimism test networks. Check out how to build a NFT marketplace on Optimism [here](https://trufflesuite.com/guides/nft-marketplace/).
 
 Optimism's Layer 2 solution is almost fully compatible with the EVM, though it uses an "optimistic" EVM called the OVM. The main difference between the EVM and the OVM that developers will notice is that some opcodes are not available for contracts that are deployed to the OVM. You can see the complete list of differences between Optimism's fork of the `solc` compiler and the original [here](https://github.com/ethereum-optimism/solidity/compare/27d51765c0623c9f6aef7c00214e9fe705c331b1...develop-0.6).
 
@@ -102,7 +101,7 @@ If you would like to recompile previously compiled contracts, you can manually r
 To migrate on an Optimistic Layer 2, run:
 
 ```
-npm run migrate:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan)
+npm run migrate:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan | dashboard)
 ```
 
 (remember to choose a network from these options!).
@@ -127,7 +126,7 @@ You have several Optimistic Layer 2 networks to choose from, prepackaged in this
 
 Layer 1 networks are included in the `truffle-config.js` file, but it is not necessary to deploy your base contracts to Layer 1 right now. Eventually, you will likely have a Layer 2 contract that you want to connect with a Layer 1 contract (they do not have to be identical!). One example is an ERC20 contract that is deployed on an Optimistic Ethereum network. At some point the user will wish to withdraw their funds into Ethereum. There will need to be a contract deployed on Layer 1 that can receive the message from Layer 2 to mint the appropriate tokens on Layer 1 for the user. More information on this system can be found [here](http://community.optimism.io/docs/developers/integration.html#bridging-l1-and-l2).
 
-If you would like to migrate previously migrated contracts on the same network, you can run `truffle migrate --config truffle-config.ovm.js --network=(ganache | optimistic_ethereum | optimistic_kovan)` and add the `--reset` flag.
+If you would like to migrate previously migrated contracts on the same network, you can run `truffle migrate --config truffle-config.ovm.js --network=(ganache | optimistic_ethereum | optimistic_kovan | dashboard)` and add the `--reset` flag.
 
 ## Basic Commands
 
@@ -140,23 +139,39 @@ The code here will allow you to compile, migrate, and test your code against an 
 
  To migrate:
  ```
- npm run migrate:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan)
+ npm run migrate:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan | dashboard)
  ```
 
  To test:
  ```
- npm run test:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan)
+ npm run test:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan | dashboard)
  ```
+
+ To run a script:
+ ```
+ npm run exec:ovm script --network=(ganache | optimistic_ethereum | optimistic_kovan | dashboard)
+ ```
+Using `truffle exec` gives your script access to the instance of web3 you have running, via `web3`, and also includes your contracts as global objects when executing the script. For more information on this command, see [here](https://trufflesuite.com/docs/truffle/reference/truffle-commands/#exec).  
 
 ### Testing
 
 Currently, this box supports testing via Javascript/TypeScript tests. In order to run the test currently in the boilerplate, use the following command:
 
 ```
-npm run test:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan)
+npm run test:ovm --network=(ganache | optimistic_ethereum | optimistic_kovan | dashboard)
 ```
+
 Remember that there are some differences between the EVM and the OVM, and refer to the Optimism documentation if you run into test failures.
 
+### Running Scripts
+
+You can write scripts that have access to your Truffle configuration and a web3 instance that is connected to the network indicated using `truffle exec` using the following command:
+
+```
+npm run exec:ovm script --network=(ganache | optimistic_ethereum | optimistic_kovan | dashboard)
+```
+
+Remember that there are some differences between the EVM and the OVM, and refer to the Optimism documentation if you run into failures.
 
 ### Communication Between Ethereum and Optimism Chains
 

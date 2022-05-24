@@ -72,8 +72,12 @@ module.exports = {
       provider: function () {
         return new HDWalletProvider(mainnetMnemonic, "https://optimism-mainnet.infura.io/v3/" + infuraKey, 0, 1);
       }
+    },
+    dashboard: {
+      host: "127.0.0.1",
+      port: 24012,
+      network_id: "*"
     }
-
   },
 
   mocha: {
@@ -81,7 +85,7 @@ module.exports = {
   },
   compilers: {
     solc: {
-      version: "0.7.6",
+      version: "0.8.13",
       settings: {
         optimizer: {
           enabled: true,
