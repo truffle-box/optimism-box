@@ -2,7 +2,7 @@
 // like the mnemomic below. Note: .env is ignored by git in this project to keep your private information safe
 require('dotenv').config();
 const ganacheMnemonic = process.env["GANACHE_MNEMONIC"];
-const kovanMnemonic = process.env["KOVAN_MNEMONIC"];
+const goerliMnemonic = process.env["GOERLI_MNEMONIC"];
 const mnemonic = 'test test test test test test test test test test test junk' // process.env["MNEMONIC"];
 
 const infuraKey = process.env["INFURA_KEY"];
@@ -57,11 +57,11 @@ module.exports = {
         })
       }
     },
-    optimistic_kovan: {
-      network_id: 69,
-      chain_id: 69,
+    optimistic_goerli: {
+      network_id: 420,
+      chain_id: 420,
       provider: function () {
-        return new HDWalletProvider(kovanMnemonic, "https://optimism-kovan.infura.io/v3/" + infuraKey, 0, 1);
+        return new HDWalletProvider(goerliMnemonic, "https://optimism-goerli.infura.io/v3/" + infuraKey, 0, 1);
       }
     },
     // requires a mainnet mnemonic; you can save this in .env or in whatever secure location
