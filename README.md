@@ -175,7 +175,7 @@ Remember that there are some differences between the EVM and the OVM, and refer 
 
 ### Communication Between Ethereum and Optimism Chains
 
-The information above should allow you to deploy to the Optimism Layer 2 chain. This is only the first step! Once you are ready to deploy your own contracts to function on Layer 1 using Layer 2, you will need to be aware of the [ways in which Layer 1 and Layer 2 interact in the Optimism ecosystem](http://community.optimism.io/docs/developers/integration.html#bridging-l1-and-l2). Keep an eye out for additional Truffle tooling and examples that elucidate this second step to full optimism integration!
+The information above should allow you to deploy to the Optimism Layer 2 chain. This is only the first step! Once you are ready to deploy your own contracts to function on Layer 1 using Layer 2, you will need to be aware of the [ways in which Layer 1 and Layer 2 interact in the Optimism ecosystem](https://community.optimism.io/docs/developers/bridge/messaging). Keep an eye out for additional Truffle tooling and examples that elucidate this second step to full optimism integration!
 
 ## Support
 
