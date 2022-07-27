@@ -16,7 +16,7 @@
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-This Truffle Optimism Box provides you with the boilerplate structure necessary to start coding for Optimism's Ethereum Layer 2 solution. For detailed information on how Optimism works, please see the documentation [here](http://community.optimism.io/docs/developers/integration.html#).
+This Truffle Optimism Box provides you with the boilerplate structure necessary to start coding for Optimism's Ethereum Layer 2 solution. For detailed information on how Optimism works, please see the documentation [here](http://community.optimism.io/docs/developers).
 
 As a starting point, this box contains only the SimpleStorage Solidity contract. Including minimal code was a conscious decision as this box is meant to provide the initial building blocks needed to get to work on Optimism without pushing developers to write any particular sort of application. With this box, you will be able to compile, migrate, and test Optimistic Solidity code against a variety of Optimism test networks. Check out how to build a NFT marketplace on Optimism [here](https://trufflesuite.com/guides/nft-marketplace/).
 
@@ -172,7 +172,7 @@ Remember that there are some differences between the EVM and the OVM, and refer 
 
 ### Communication Between Ethereum and Optimism Chains
 
-The information above should allow you to deploy to the Optimism Layer 2 chain. This is only the first step! Once you are ready to deploy your own contracts to function on Layer 1 using Layer 2, you will need to be aware of the [ways in which Layer 1 and Layer 2 interact in the Optimism ecosystem](http://community.optimism.io/docs/developers/integration.html#bridging-l1-and-l2). We have an [Optimism Bridge Box](https://trufflesuite.com/blog/introducing-the-optimism-bridge-truffle-box/?utm_source=github&utm_medium=devcommunity&utm_campaign=2022_Jul_optimism-box-readme_tutorial_content) that shows you just how to do that!
+The information above should allow you to deploy to the Optimism Layer 2 chain. This is only the first step! Once you are ready to deploy your own contracts to function on Layer 1 using Layer 2, you will need to be aware of the [ways in which Layer 1 and Layer 2 interact in the Optimism ecosystem](https://community.optimism.io/docs/developers/bridge/messaging). We have an [Optimism Bridge Box](https://trufflesuite.com/blog/introducing-the-optimism-bridge-truffle-box/?utm_source=github&utm_medium=devcommunity&utm_campaign=2022_Jul_optimism-box-readme_tutorial_content) that shows you just how to do that!
 
 ## Support
 
