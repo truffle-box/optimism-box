@@ -26,21 +26,11 @@ module.exports = {
   contracts_directory: './contracts/optimism',
 
   networks: {
-    development: {
-      url: "http://127.0.0.1:7545",
-      network_id: "*",
-    },
-    ganache: {
-      network_id: 108,
-      networkCheckTimeout: 100000,
-      provider: function () {
-        return ganache.provider({
-          mnemonic: ganacheMnemonic,
-          network_id: 108,
-          default_balance_ether: 100,
-        })
-      }
-    },
+    // development: {
+    //   host: "127.0.0.1",     // Localhost (default: none)
+    //   port: 8545,            // Standard Ethereum port (default: none)
+    //   network_id: "*"       // Any network (default: none)
+    // },
     // for use with local environment -- see README and list of available
     // scripts in package.json for steps to get this running on your local machine
     optimistic_ethereum: {
