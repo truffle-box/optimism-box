@@ -53,21 +53,17 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    development: {
-      host: "127.0.0.1",     // Localhost (default: none)
-      port: 8545,            // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)
-      maxFeePerGas: 500000000 // The block's base fee per gas is greater than the default max fee per gas
-    },
+    // development: {
+    //   host: "127.0.0.1",     // Localhost (default: none)
+    //   port: 8545,            // Standard Ethereum port (default: none)
+    //   network_id: "*"       // Any network (default: none)
+    // },
     local_ethereum: {
       network_id: 31337,
       host: '127.0.0.1',
       port: 9545,
       gasPrice: 0
     },
-    // UNCOMMENT TO USE GOERLI NETWORK
-    // Currently, VSCode Extension debugger fails with "truffle-config.js" has incorrect format
-    // due to the usage of HDWalletProvider
     // goerli: {
     //   network_id: 5,
     //   chain_id: 5,
